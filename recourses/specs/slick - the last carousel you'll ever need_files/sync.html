@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- saved from url=(0271)https://pippio.com/api/sync?pid=1391&ref=http%3A%2F%2Fkenwheeler.github.io%2Fslick%2F&it=1&iv=cc3ogul26k9hjh&it=4&iv=ea5f80456818524eb53c86eb9e0e9b2a&it=4&iv=1f1596699f101c504121304d601da3bc2f6c80c2&it=4&iv=265b2df42f40a9352da837a005328a6c17fb0b0b6cbaa63f9d3d07e072f7397e -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script>
+		var f = function () {
+	function loadChains(chains, limit, onChainDone) {
+    function newImageLoader(url) {
+        return function () {
+            var e = new Image();
+            addListeners(e);
+            e.src = url;
+        };
+    }
+
+    function newScriptLoader(url) {
+        return function () {
+            var e = document.createElement('script');
+            e.type = 'text/javascript';
+            e.async = true;
+            addListeners(e);
+            e.src = url;
+            document.head.appendChild(e);
+        };
+    }
+
+    function newIframeLoader(url) {
+        return function () {
+            var e = document.createElement('iframe');
+            e.style.display = 'none';
+            e.width = 1;
+            e.height = 1;
+            addListeners(e);
+            e.src = url;
+            document.body.appendChild(e);
+        };
+    }
+
+    function addListeners(e) {
+        addLoadErrorListeners(e, loadNext);
+        if (typeof onChainDone === 'function') {
+            addLoadErrorListeners(e, onChainDone);
+        }
+    }
+
+    function addLoadErrorListeners(e, listener) {
+        if (typeof e.addEventListener === 'function') {
+            e.addEventListener('load', listener, false);
+            e.addEventListener('error', listener, false);
+        } else if (typeof e.attachEvent === 'function') {
+            e.attachEvent('onload', listener);
+            e.attachEvent('onerror', listener);
+        }
+    }
+
+    function loadNext() {
+        var next = loaders.shift();
+        if (typeof next === "function") {
+            setTimeout(next);
+        }
+    }
+
+    var loaders = chains.reduce(function (acc, value) {
+        var mode = value[0];
+        var url = value[1];
+
+        switch (mode) {
+            case 'image':
+                acc.push(newImageLoader(url));
+                break;
+            case 'script':
+                acc.push(newScriptLoader(url));
+                break;
+            case 'iframe':
+                acc.push(newIframeLoader(url));
+                break;
+        }
+        return acc;
+    }, []);
+
+    for (var i = 0; i < limit; i++) {
+        loadNext();
+    }
+}
+
+	var chains = [];
+	chains.push(['image', 'https://p-eu.acxiom-online.com/pixel/ema?ha=sha1&eml=1f1596699f101c504121304d601da3bc2f6c80c2&sc=01&pid=6511&t=651101&ot=pixel&dnt=0&n=1']);
+	chains.push(['image', 'https://p-eu.acxiom-online.com/pixel/ema?ha=md5&eml=ea5f80456818524eb53c86eb9e0e9b2a&sc=01&pid=6511&t=651102&ot=pixel&dnt=0&n=2']);
+	chains.push(['image', 'https://rc.rlcdn.com/449266.gif?&n=5']);
+	chains.push(['image', 'https://rc.rlcdn.com/449266.gif?&n=3']);
+	chains.push(['image', 'https://rc.rlcdn.com/449266.gif?&n=4']);
+
+	loadChains(chains, 10, (typeof onDone === "function") ? onDone : null);
+		};
+
+		if (document.body) { f(); } else { document.addEventListener('DOMContentLoaded', f); }
+	</script>
+</head><body></body></html>

@@ -1,0 +1,28 @@
+/*universal*/
+
+
+/*bootstrap override*/
+.navbar-defeault .navbar-nav > .active > a,
+.navbar-defeault .navbar-nav > .active > a:hoover {
+  background-color: inherit;
+  color: #399bd1;
+}
+
+/*slick override*/
+
+
+/*navigation*/
+
+
+/*carousel*/
+.jumbotron{
+  background-image: image(url('../image/jumbotron-bike.jpg'));
+}
+
+/*featured*/
+
+
+/*projects*/
+
+
+/*learn more*/
